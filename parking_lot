@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
+
+arg1=$1
+##jar file name
+jar_name=parkinglot-2.0-SNAPSHOT.jar
+
+jar_path_name="${DIR}/target/${jar_name}";
+
+
+#mvn clean install
+
+if [ -z "$1" ] ; then
+        java -jar ${DIR}/target/${jar_name} "parking_lot_file_inputs.txt"
+        exit 1
+
+else
+	java -jar  $jar_path_name $arg1
+
+  exit 1
+fi
